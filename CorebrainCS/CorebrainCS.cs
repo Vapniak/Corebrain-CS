@@ -63,6 +63,28 @@ namespace CorebrainCS
             return ExecuteCommand("--extract-schema --config-id config");
         }
 
+        public string Token(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+                throw new ArgumentException("Token cannot be empty or null.");
+
+            string arguments = $"--token {token}";
+
+            return ExecuteCommand(arguments);
+        }
+
+        public string ApiKey(string apiKey)
+        {
+            if (string.IsNullOrEmpty(apiKey))
+                throw new ArgumentException("API Key cannot be empty or null.");
+
+            string arguments = $"--api-key {apiKey}";
+
+            return ExecuteCommand(arguments);
+        }
+
+        
+
 
 
         public string ExecuteCommand(string arguments)
